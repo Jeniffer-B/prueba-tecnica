@@ -15,10 +15,9 @@ function calculatePosition() {
     movements = movements.toUpperCase();
     positionX = parseInt(document.getElementById("positionX").value);
     positionY = parseInt(document.getElementById("positionY").value);
-    let squareSize = document.getElementById("squareSize").value;
+    let squareSize = parseInt(document.getElementById("squareSize").value);
     // comprovar orientacion
     if(validOrientation.indexOf(orientation) === -1) {
-        debugger
         alert("invalid orientation")
         return
     }
@@ -39,22 +38,18 @@ function calculatePosition() {
                 rotateL()
                 break;
         }
-        console.log(positionX, positionY)
-        console.log(isvalid)
-        document.getElementById("finalCoordinatesX").innerHTML= positionX;
-        document.getElementById("finalCoordinatesY").innerHTML= positionY;
-        document.getElementById("finalOrientation").innerHTML= orientation;
-        document.getElementById("result").innerHTML= isvalid;
     }
     checkPositionIsCorrect(squareSize, positionX, positionY)
+    document.getElementById("finalCoordinatesX").innerHTML= positionX;
+    document.getElementById("finalCoordinatesY").innerHTML= positionY;
+    document.getElementById("finalOrientation").innerHTML= orientation;
+    document.getElementById("result").innerHTML= isvalid;
 }
 function checkPositionIsCorrect(squareSize,positionX, positionY) {
     if(Math.sign(positionX) === -1 || 
         Math.sign(positionY) === -1 || 
-        squareSize.length < positionX || 
-        squareSize.length < positionY ||
-        positionX) 
-    {
+        squareSize < positionX || 
+        squareSize < positionY ) {
         isvalid = false;
         alert("fuera del cuadrado")
     } else {
