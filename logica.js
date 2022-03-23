@@ -17,7 +17,8 @@ function calculatePosition() {
     positionY = parseInt(document.getElementById("positionY").value);
     let squareSize = document.getElementById("squareSize").value;
     // comprovar orientacion
-    if(validActions.indexOf(orientation) === -1) {
+    if(validOrientation.indexOf(orientation) === -1) {
+        debugger
         alert("invalid orientation")
         return
     }
